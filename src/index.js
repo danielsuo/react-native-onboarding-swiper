@@ -54,7 +54,7 @@ class Onboarding extends Component {
     } = this.props;
     const currentPage = pages[this.state.currentPage];
     const { backgroundColor } = currentPage;
-    const isLight = tinycolor(backgroundColor).getBrightness() > 180;
+    let isLight = tinycolor(backgroundColor).getBrightness() > 180;
     if (!!this.props.isLight) {
       isLight = this.props.isLight;
     }
