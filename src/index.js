@@ -55,6 +55,9 @@ class Onboarding extends Component {
     const currentPage = pages[this.state.currentPage];
     const { backgroundColor } = currentPage;
     const isLight = tinycolor(backgroundColor).getBrightness() > 180;
+    if (!!this.props.isLight) {
+      isLight = this.props.isLight;
+    }
     const barStyle = isLight ? 'dark-content' : 'light-content';
     StatusBar.setBarStyle(barStyle);
 
