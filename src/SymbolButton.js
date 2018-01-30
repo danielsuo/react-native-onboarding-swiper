@@ -2,12 +2,13 @@ import { View, TouchableOpacity, Text, ViewPropTypes } from "react-native";
 import React from "react";
 import PropTypes from "prop-types";
 
-const SymbolButton = ({ size, onPress, style, textStyle, children }) => (
+const SymbolButton = ({ size, onPressIn, onPress, style, textStyle, children }) => (
   <View
     style={{ height: size, width: size, justifyContent: "center", ...style }}
   >
     <TouchableOpacity
       style={{ flex: 0 }}
+      onPressIn={onPressIn}
       onPress={onPress}
       hitSlop={{ top: 15, bottom: 15, left: 15, right: 15 }}
     >

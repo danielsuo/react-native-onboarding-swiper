@@ -20,8 +20,11 @@ const Pagination = ({
   showSkip,
   showNext,
   showDone,
+  onNextIn,
   onNext,
+  onSkipIn,
   onSkip,
+  onDoneIn,
   onDone,
   skipLabel,
 }) => {
@@ -32,6 +35,9 @@ const Pagination = ({
       <TextButton
         size={BUTTON_SIZE}
         textStyle={getDefaultStyle(isLight)}
+        onPressIn={() => {
+          onSkipIn && onSkipIn();
+        }}
         onPress={() => {
           onSkip && onSkip();
           StatusBar.setBarStyle('default');
@@ -46,6 +52,9 @@ const Pagination = ({
       <SymbolButton
         size={BUTTON_SIZE}
         textStyle={getDefaultStyle(isLight)}
+        onPressIn={() => {
+          onNextIn && onNextIn();
+        }}
         onPress={onNext}
       >
         →
@@ -60,6 +69,9 @@ const Pagination = ({
         style={{
           borderRadius: BUTTON_SIZE / 2,
           backgroundColor: 'rgba(255, 255, 255, 0.10)',
+        }}
+        onPressIn={() => {
+          onDoneIn && onDoneIn();
         }}
         onPress={() => {
           onDone && onDone();

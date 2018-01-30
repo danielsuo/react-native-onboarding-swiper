@@ -48,7 +48,11 @@ class Onboarding extends Component {
       showSkip,
       showNext,
       showDone,
+      onSkipIn,
       onSkip,
+      onNextIn,
+      onNext,
+      onDoneIn,
       onDone,
       skipLabel,
     } = this.props;
@@ -89,9 +93,21 @@ class Onboarding extends Component {
           showDone={showDone}
           numPages={pages.length}
           currentPage={this.state.currentPage}
+          onSkipIn={() => {
+            onSkipIn && onSkipIn()
+          }}
           onSkip={onSkip}
+          onDoneIn={() => {
+            onDoneIn && onDoneIn()
+          }}
           onDone={onDone}
-          onNext={this.goNext}
+          onNextIn={() => {
+            onNextIn && onNextIn()
+          }}
+          onNext={() => {
+            onNext && onNext();
+            this.goNext();
+          }}
           skipLabel={skipLabel}
         />
       </View>
