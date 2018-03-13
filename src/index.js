@@ -31,7 +31,7 @@ class Onboarding extends Component {
     });
   };
 
-  keyExtractor = (item, index) => index;
+  keyExtractor = (item, index) => index.toString();
 
   renderItem = ({ item }) => {
     const { image, title, subtitle, backgroundColor } = item;
